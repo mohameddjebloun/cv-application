@@ -1,0 +1,55 @@
+.button {
+    font: inherit;
+    color: white;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: none;
+}
+.default {
+    border: 1px solid #4f005f;
+    background: #4f005f;
+}
+.default:hover,
+.default:active {
+    background: #4f005fcc;
+    border-color: #4f005fcc;
+}
+.submit {
+    border: 1px solid #00d100;
+    background: #00d100;
+}
+.submit:hover,
+.submit:active {
+    background: #00d100cc;
+    border-color: #00d100cc;
+}
+.add {
+    border: 1px solid #007500;
+    background: #007500;
+}
+.add:hover,
+.add:active {
+    background: #007500cc;
+    border-color: #007500cc;
+}
+.delete {
+    border: 1px solid #ffa500;
+    background: #ffa500;
+}
+.delete:hover,
+.delete:active {
+    background: #ffa500cc;
+    border-color: #ffa500cc;
+}
+.reset {
+    border: 1px solid #eb0000;
+    background: #eb0000;
+}
+.reset:hover,
+.reset:active {
+    background: #eb0000cc;
+    border-color: #eb0000cc;
+}
