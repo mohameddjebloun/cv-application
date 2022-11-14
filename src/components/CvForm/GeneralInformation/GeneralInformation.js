@@ -1,5 +1,6 @@
 //Imports
 import useInput from "../../../hooks/use-input";
+import Input from "../../UI/Input";
 //Validation functions
 const isEmail = (value) =>
     /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
@@ -90,110 +91,101 @@ const GeneralInformation = (props) => {
     //Return the jsx
     return (
         <div className={props.wrapperClass}>
-            <div className={firstNameClasses}>
-                <label htmlFor="firstName">First Name</label>
-                <input
-                    type="text"
-                    id="firstName"
-                    value={firstNameValue}
-                    onChange={firstNameChangeHandler}
-                    onBlur={firstNameBlurHandler}
-                />
-                {firstNameHasError && (
-                    <p className={props.errorClass}>
-                        Please enter a first name.
-                    </p>
-                )}
-            </div>
-            <div className={lastNameClasses}>
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                    type="text"
-                    id="lastName"
-                    value={lastNameValue}
-                    onChange={lastNameChangeHandler}
-                    onBlur={lastNameBlurHandler}
-                />
-                {lastNameHasError && (
-                    <p className={props.errorClass}>
-                        Please enter a last name.
-                    </p>
-                )}
-            </div>
-            <div className={addressClasses}>
-                <label htmlFor="address">Address</label>
-                <input
-                    type="text"
-                    id="address"
-                    value={addressValue}
-                    onChange={addressChangeHandler}
-                    onBlur={addressBlurHandler}
-                />
-                {addressHasError && (
-                    <p className={props.errorClass}>Please enter an address.</p>
-                )}
-            </div>
-            <div className={phoneNumberClasses}>
-                <label htmlFor="phoneNumber">Phone Number</label>
-                <input
-                    type="text"
-                    id="phoneNumber"
-                    value={phoneNumberValue}
-                    onChange={phoneNumberChangeHandler}
-                    onBlur={phoneNumberBlurHandler}
-                />
-                {phoneNumberHasError && (
-                    <p className={props.errorClass}>
-                        Please enter a valid phone number.
-                    </p>
-                )}
-            </div>
-            <div className={emailClasses}>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="text"
-                    id="email"
-                    value={emailValue}
-                    onChange={emailChangeHandler}
-                    onBlur={emailBlurHandler}
-                />
-                {emailHasError && (
-                    <p className={props.errorClass}>
-                        Please enter a valid email.
-                    </p>
-                )}
-            </div>
-            <div className={descriptionClasses}>
-                <label htmlFor="description">Description</label>
-                <input
-                    type="text"
-                    id="description"
-                    value={descriptionValue}
-                    onChange={descriptionChangeHandler}
-                    onBlur={descriptionBlurHandler}
-                />
-                {descriptionHasError && (
-                    <p className={props.errorClass}>
-                        Please enter a description.
-                    </p>
-                )}
-            </div>
-            <div className={imageClasses}>
-                <label htmlFor="image">Image</label>
-                <input
-                    type="file"
-                    id="image"
-                    accept="image/*"
-                    value={imageValue}
-                    onChange={imageChangeHandler}
-                    onBlur={imageBlurHandler}
-                />
-                {imageHasError && (
-                    <p className={props.errorClass}>
-                        Please upload an image file.
-                    </p>
-                )}
-            </div>
+            <Input
+                classes={firstNameClasses}
+                type="text"
+                id="firstName"
+                labelValue={"First Name"}
+                value={firstNameValue}
+                placeHolder="Name"
+                onChange={firstNameChangeHandler}
+                onBlur={firstNameBlurHandler}
+            />
+
+            {firstNameHasError && (
+                <p className={props.errorClass}>Please enter a first name.</p>
+            )}
+            <Input
+                classes={lastNameClasses}
+                type="text"
+                id="lastName"
+                labelValue={"Last Name"}
+                value={lastNameValue}
+                placeHolder="Name"
+                onChange={lastNameChangeHandler}
+                onBlur={lastNameBlurHandler}
+            />
+
+            {lastNameHasError && (
+                <p className={props.errorClass}>Please enter a last name.</p>
+            )}
+            <Input
+                classes={addressClasses}
+                type="text"
+                id="address"
+                labelValue={"Address"}
+                value={addressValue}
+                placeHolder="Address"
+                onChange={addressChangeHandler}
+                onBlur={addressBlurHandler}
+            />
+
+            {addressHasError && (
+                <p className={props.errorClass}>Please enter an address.</p>
+            )}
+            <Input
+                classes={phoneNumberClasses}
+                type="text"
+                id="phoneNumber"
+                labelValue={"Phone Number"}
+                value={phoneNumberValue}
+                placeHolder="xxxxxxxxxx"
+                onChange={phoneNumberChangeHandler}
+                onBlur={phoneNumberBlurHandler}
+            />
+
+            {phoneNumberHasError && (
+                <p className={props.errorClass}>
+                    Please enter a valid phone number.
+                </p>
+            )}
+            <Input
+                classes={emailClasses}
+                type="text"
+                id="email"
+                labelValue={"Email"}
+                value={emailValue}
+                placeHolder="test@test.com"
+                onChange={emailChangeHandler}
+                onBlur={emailBlurHandler}
+            />
+
+            {emailHasError && (
+                <p className={props.errorClass}>Please enter a valid email.</p>
+            )}
+            <textarea
+                className={descriptionClasses}
+                placeholder="Description..."
+                value={descriptionValue}
+                onChange={descriptionChangeHandler}
+                onBlur={descriptionBlurHandler}
+            ></textarea>
+            {descriptionHasError && (
+                <p className={props.errorClass}>Please enter a description.</p>
+            )}
+            <Input
+                classes={imageClasses}
+                type="file"
+                id="image"
+                labelValue={"Image"}
+                value={imageValue}
+                onChange={imageChangeHandler}
+                onBlur={imageBlurHandler}
+            />
+
+            {imageHasError && (
+                <p className={props.errorClass}>Please upload an image file.</p>
+            )}
         </div>
     );
 };
