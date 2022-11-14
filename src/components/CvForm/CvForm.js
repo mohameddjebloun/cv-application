@@ -8,11 +8,26 @@ const CvForm = (props) => {
         <Card>
             <form>
                 <h2>General Information</h2>
-                <GeneralInformation />
+                <GeneralInformation
+                    wrapperClass={classes["control-group"]}
+                    inputClass={classes["form-control"]}
+                    optionalClass={classes.invalid}
+                    errorClass={classes["error-text"]}
+                />
                 <h2>Educational Experience</h2>
-                <EducationalExperience />
+                <EducationalExperience
+                    wrapperClass={classes["control-group"]}
+                    inputClass={classes["form-control"]}
+                    optionalClass={classes.invalid}
+                    errorClass={classes["error-text"]}
+                />
                 <h2>Working Experience</h2>
-                <WorkingExperience />
+                <WorkingExperience
+                    wrapperClass={classes["control-group"]}
+                    inputClass={classes["form-control"]}
+                    optionalClass={classes.invalid}
+                    errorClass={classes["error-text"]}
+                />
             </form>
         </Card>
     );
