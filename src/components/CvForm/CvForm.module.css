@@ -12,7 +12,8 @@
     margin-bottom: 0.5rem;
 }
 
-.form-control input {
+.form-control input,
+textarea {
     font: inherit;
     padding: 0.5rem;
     border-radius: 4px;
@@ -20,7 +21,8 @@
     width: 100%;
 }
 
-.form-control input:focus {
+.form-control input:focus,
+textarea:focus {
     outline: none;
     border-color: #240370;
     background-color: #e0d4fd;
@@ -44,12 +46,14 @@
     margin-left: 1rem;
 }
 
-.invalid input {
+.invalid input,
+.invalid textarea {
     border: 1px solid #b40e0e;
     background-color: #fddddd;
 }
 
-.invalid input:focus {
+.invalid input:focus,
+.invalid textarea:focus {
     border-color: #ff8800;
     background-color: #fbe8d2;
 }
