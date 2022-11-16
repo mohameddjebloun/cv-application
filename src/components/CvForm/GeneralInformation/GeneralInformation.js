@@ -93,6 +93,7 @@ const GeneralInformation = (props) => {
         <div className={props.wrapperClass}>
             <Input
                 classes={firstNameClasses}
+                errorClass={props.errorClass}
                 type="text"
                 id="firstName"
                 labelValue={"First Name"}
@@ -100,13 +101,13 @@ const GeneralInformation = (props) => {
                 placeHolder="Name"
                 onChange={firstNameChangeHandler}
                 onBlur={firstNameBlurHandler}
+                errorText="Please enter a first name."
+                hasError={firstNameHasError}
             />
 
-            {firstNameHasError && (
-                <p className={props.errorClass}>Please enter a first name.</p>
-            )}
             <Input
                 classes={lastNameClasses}
+                errorClass={props.errorClass}
                 type="text"
                 id="lastName"
                 labelValue={"Last Name"}
@@ -114,13 +115,13 @@ const GeneralInformation = (props) => {
                 placeHolder="Name"
                 onChange={lastNameChangeHandler}
                 onBlur={lastNameBlurHandler}
+                errorText="Please enter a last name."
+                hasError={lastNameHasError}
             />
 
-            {lastNameHasError && (
-                <p className={props.errorClass}>Please enter a last name.</p>
-            )}
             <Input
                 classes={addressClasses}
+                errorClass={props.errorClass}
                 type="text"
                 id="address"
                 labelValue={"Address"}
@@ -128,13 +129,13 @@ const GeneralInformation = (props) => {
                 placeHolder="Address"
                 onChange={addressChangeHandler}
                 onBlur={addressBlurHandler}
+                errorText="Please enter an address."
+                hasError={addressHasError}
             />
 
-            {addressHasError && (
-                <p className={props.errorClass}>Please enter an address.</p>
-            )}
             <Input
                 classes={phoneNumberClasses}
+                errorClass={props.errorClass}
                 type="text"
                 id="phoneNumber"
                 labelValue={"Phone Number"}
@@ -142,15 +143,13 @@ const GeneralInformation = (props) => {
                 placeHolder="xxxxxxxxxx"
                 onChange={phoneNumberChangeHandler}
                 onBlur={phoneNumberBlurHandler}
+                errorText="Please enter a valid phone number."
+                hasError={phoneNumberHasError}
             />
 
-            {phoneNumberHasError && (
-                <p className={props.errorClass}>
-                    Please enter a valid phone number.
-                </p>
-            )}
             <Input
                 classes={emailClasses}
+                errorClass={props.errorClass}
                 type="text"
                 id="email"
                 labelValue={"Email"}
@@ -158,11 +157,10 @@ const GeneralInformation = (props) => {
                 placeHolder="test@test.com"
                 onChange={emailChangeHandler}
                 onBlur={emailBlurHandler}
+                errorText="Please enter a valid email."
+                hasError={emailHasError}
             />
 
-            {emailHasError && (
-                <p className={props.errorClass}>Please enter a valid email.</p>
-            )}
             <textarea
                 className={descriptionClasses}
                 placeholder="Description..."
@@ -175,17 +173,16 @@ const GeneralInformation = (props) => {
             )}
             <Input
                 classes={imageClasses}
+                errorClass={props.errorClass}
                 type="file"
                 id="image"
                 labelValue={"Image"}
                 value={imageValue}
                 onChange={imageChangeHandler}
                 onBlur={imageBlurHandler}
+                errorText="Please upload an image file."
+                hasError={imageHasError}
             />
-
-            {imageHasError && (
-                <p className={props.errorClass}>Please upload an image file.</p>
-            )}
         </div>
     );
 };
