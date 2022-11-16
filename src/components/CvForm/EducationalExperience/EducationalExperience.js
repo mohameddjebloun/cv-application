@@ -54,5 +54,24 @@ const EducationalExperience = (props) => {
         inputBlurHandler: endDateBlurHandler,
         reset: resetEndDate,
     } = useInput(isNotEmpty);
+    //Input classes
+    const universityClasses = universityHasError
+        ? `${props.inputClass} ${props.optionalClass}`
+        : props.inputClass;
+    const cityClasses = cityHasError
+        ? `${props.inputClass} ${props.optionalClass}`
+        : props.inputClass;
+    const degreeClasses = degreeHasError
+        ? `${props.inputClass} ${props.optionalClass}`
+        : props.inputClass;
+    const subjectClasses = subjectHasError
+        ? `${props.inputClass} ${props.optionalClass}`
+        : props.inputClass;
+    const startDateClasses = startDateHasError
+        ? `${props.inputClass} ${props.optionalClass}`
+        : props.inputClass;
+    const endDateClasses = endDateHasError
+        ? `${props.inputClass} ${props.optionalClass}`
+        : props.inputClass;
 };
 export default EducationalExperience;
