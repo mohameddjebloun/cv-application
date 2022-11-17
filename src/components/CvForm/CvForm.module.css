@@ -61,3 +61,7 @@ textarea:focus {
 .error-text {
     color: #b40e0e;
 }
+button {
+    width: 50%;
+    margin: 0.1rem;
+}
