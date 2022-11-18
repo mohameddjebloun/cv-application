@@ -2,6 +2,7 @@
 import useInput from "../../../hooks/use-input";
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
+import { useEffect } from "react";
 //Validation functions
 const isNotEmpty = (value) => value.trim() !== "";
 //Component function
@@ -47,6 +48,34 @@ const WorkingExperience = (props) => {
         inputBlurHandler: jobEndDateBlurHandler,
         reset: resetJobEndDate,
     } = useInput(isNotEmpty);
+    //Update the object values using useEffect
+    useEffect(() => {
+        //Update the object values
+        props.changeState((prevState) =>
+            prevState.map((obj) => {
+                if (obj.key === props.id) {
+                    return {
+                        ...obj,
+                        position: positionValue,
+                        company: companyValue,
+                        city: cityValue,
+                        jobStartDate: jobStartDateValue,
+                        jobEndDate: jobEndDateValue,
+                    };
+                }
+                return obj;
+            })
+        );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+        positionValue,
+        companyValue,
+        cityValue,
+        jobStartDateValue,
+        jobEndDateValue,
+        props.id,
+        props.changeState,
+    ]);
     //Input classes
     const positionClasses = positionHasError
         ? `${props.inputClass} ${props.optionalClass}`

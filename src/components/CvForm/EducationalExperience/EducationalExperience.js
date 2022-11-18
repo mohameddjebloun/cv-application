@@ -2,6 +2,7 @@
 import useInput from "../../../hooks/use-input";
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
+import { useEffect } from "react";
 //Validation functions
 const isNotEmpty = (value) => value.trim() !== "";
 //Component function
@@ -55,6 +56,36 @@ const EducationalExperience = (props) => {
         inputBlurHandler: endDateBlurHandler,
         reset: resetEndDate,
     } = useInput(isNotEmpty);
+    //Update the object values using useEffect
+    useEffect(() => {
+        //Update the object values
+        props.changeState((prevState) =>
+            prevState.map((obj) => {
+                if (obj.key === props.id) {
+                    return {
+                        ...obj,
+                        university: universityValue,
+                        city: cityValue,
+                        degree: degreeValue,
+                        subject: subjectValue,
+                        startDate: startDateValue,
+                        endDate: endDateValue,
+                    };
+                }
+                return obj;
+            })
+        );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+        cityValue,
+        degreeValue,
+        endDateValue,
+        startDateValue,
+        subjectValue,
+        universityValue,
+        props.id,
+        props.changeState,
+    ]);
     //Input classes
     const universityClasses = universityHasError
         ? `${props.inputClass} ${props.optionalClass}`
@@ -74,6 +105,7 @@ const EducationalExperience = (props) => {
     const endDateClasses = endDateHasError
         ? `${props.inputClass} ${props.optionalClass}`
         : props.inputClass;
+
     //Return the jsx
     return (
         <div className={props.wrapperClass}>
