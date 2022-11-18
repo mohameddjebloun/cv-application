@@ -55,10 +55,23 @@ const renderArray = (array, component, setState) => {
 };
 //Component function
 const CvForm = (props) => {
+    //Initialize the states
     const [educationalArray, setEducationalArray] = useState([
         initialEducationState,
     ]);
     const [workingArray, setWorkingArray] = useState([initialWorkingState]);
+    //Handle the add button click event
+    const addEducationClickHandler = () => {
+        initialEducationState.key = uuid();
+        setEducationalArray((prevState) => [
+            ...prevState,
+            initialEducationState,
+        ]);
+    };
+    const addWorkingClickHandler = () => {
+        initialWorkingState.key = uuid();
+        setWorkingArray((prevState) => [...prevState, initialWorkingState]);
+    };
     return (
         <Card>
             <form>
@@ -75,14 +88,14 @@ const CvForm = (props) => {
                     "EducationalExperience",
                     setEducationalArray
                 )}
-                <Button>Add</Button>
+                <Button onClick={addEducationClickHandler}>Add</Button>
                 <h2>Working Experience</h2>
                 {renderArray(
                     workingArray,
                     "WorkingExperience",
                     setWorkingArray
                 )}
-                <Button>Add</Button>
+                <Button onClick={addWorkingClickHandler}>Add</Button>
             </form>
         </Card>
     );
