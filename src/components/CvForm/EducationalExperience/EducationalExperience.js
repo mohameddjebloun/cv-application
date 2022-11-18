@@ -86,6 +86,14 @@ const EducationalExperience = (props) => {
         props.id,
         props.changeState,
     ]);
+    //Handle the delete button click event
+    const deleteClickHandler = () => {
+        props.changeState((prevState) =>
+            prevState.filter((obj) => {
+                return obj.key !== props.id;
+            })
+        );
+    };
     //Input classes
     const universityClasses = universityHasError
         ? `${props.inputClass} ${props.optionalClass}`
@@ -187,7 +195,7 @@ const EducationalExperience = (props) => {
                 errorText="Please select a date."
                 hasError={endDateHasError}
             />
-            <Button>Delete</Button>
+            <Button onClick={deleteClickHandler}>Delete</Button>
         </div>
     );
 };

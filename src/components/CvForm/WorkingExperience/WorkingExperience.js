@@ -76,6 +76,14 @@ const WorkingExperience = (props) => {
         props.id,
         props.changeState,
     ]);
+    //Handle the delete button click event
+    const deleteClickHandler = () => {
+        props.changeState((prevState) =>
+            prevState.filter((obj) => {
+                return obj.key !== props.id;
+            })
+        );
+    };
     //Input classes
     const positionClasses = positionHasError
         ? `${props.inputClass} ${props.optionalClass}`
@@ -158,7 +166,7 @@ const WorkingExperience = (props) => {
                 errorText="Please select a date."
                 hasError={jobEndDateHasError}
             />
-            <Button>Delete</Button>
+            <Button onClick={deleteClickHandler}>Delete</Button>
         </div>
     );
 };
