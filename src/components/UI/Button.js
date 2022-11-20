@@ -4,7 +4,7 @@ import classes from "./Button.module.css";
 
 const Button = (props) => {
     let buttonClasses;
-    if (props.children === "Submit") {
+    if (props.children === "Generate CV") {
         buttonClasses = `${classes.button} ${classes.submit}`;
     } else if (props.children === "Add") {
         buttonClasses = `${classes.button} ${classes.add}`;

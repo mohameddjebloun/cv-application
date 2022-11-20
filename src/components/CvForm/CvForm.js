@@ -81,10 +81,13 @@ const CvForm = (props) => {
         setEducationalArray([initialEducationState]);
         setWorkingArray([initialWorkingState]);
     };
-
+    //Handle the form submit event
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+    };
     return (
         <Card>
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <h2>General Information</h2>
                 <GeneralInformation
                     wrapperClass={classes["control-group"]}
@@ -107,6 +110,7 @@ const CvForm = (props) => {
                     setWorkingArray
                 )}
                 <Button onClick={addWorkingClickHandler}>Add</Button>
+                <Button type="submit">Generate CV</Button>
             </form>
             <Button onClick={resetClickHandler}>Reset</Button>
         </Card>
