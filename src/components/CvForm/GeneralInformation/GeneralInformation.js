@@ -66,6 +66,18 @@ const GeneralInformation = (props) => {
         inputBlurHandler: imageBlurHandler,
         reset: resetImage,
     } = useInput(isNotEmpty);
+    //Handle reset prop
+    const resetAll = () => {
+        resetAddress();
+        resetDescription();
+        resetEmail();
+        resetFirstName();
+        resetImage();
+        resetLastName();
+        resetPhoneNumber();
+    };
+    props.reset.generalInfo = resetAll;
+
     //Input classes
     const firstNameClasses = firstNameHasError
         ? `${props.inputClass} ${props.optionalClass}`

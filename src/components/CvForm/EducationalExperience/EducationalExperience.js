@@ -14,7 +14,6 @@ const EducationalExperience = (props) => {
         hasError: universityHasError,
         valueChangeHandler: universityChangeHandler,
         inputBlurHandler: universityBlurHandler,
-        reset: resetUniversity,
     } = useInput(isNotEmpty);
     const {
         value: cityValue,
@@ -22,7 +21,6 @@ const EducationalExperience = (props) => {
         hasError: cityHasError,
         valueChangeHandler: cityChangeHandler,
         inputBlurHandler: cityBlurHandler,
-        reset: resetCity,
     } = useInput(isNotEmpty);
     const {
         value: degreeValue,
@@ -30,7 +28,6 @@ const EducationalExperience = (props) => {
         hasError: degreeHasError,
         valueChangeHandler: degreeChangeHandler,
         inputBlurHandler: degreeBlurHandler,
-        reset: resetDegree,
     } = useInput(isNotEmpty);
     const {
         value: subjectValue,
@@ -38,7 +35,6 @@ const EducationalExperience = (props) => {
         hasError: subjectHasError,
         valueChangeHandler: subjectChangeHandler,
         inputBlurHandler: subjectBlurHandler,
-        reset: resetSubject,
     } = useInput(isNotEmpty);
     const {
         value: startDateValue,
@@ -46,7 +42,6 @@ const EducationalExperience = (props) => {
         hasError: startDateHasError,
         valueChangeHandler: startDateChangeHandler,
         inputBlurHandler: startDateBlurHandler,
-        reset: resetStartDate,
     } = useInput(isNotEmpty);
     const {
         value: endDateValue,
@@ -54,7 +49,6 @@ const EducationalExperience = (props) => {
         hasError: endDateHasError,
         valueChangeHandler: endDateChangeHandler,
         inputBlurHandler: endDateBlurHandler,
-        reset: resetEndDate,
     } = useInput(isNotEmpty);
     //Update the object values using useEffect
     useEffect(() => {

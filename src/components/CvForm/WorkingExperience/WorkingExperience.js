@@ -14,7 +14,6 @@ const WorkingExperience = (props) => {
         hasError: positionHasError,
         valueChangeHandler: positionChangeHandler,
         inputBlurHandler: positionBlurHandler,
-        reset: resetPosition,
     } = useInput(isNotEmpty);
     const {
         value: companyValue,
@@ -22,7 +21,6 @@ const WorkingExperience = (props) => {
         hasError: companyHasError,
         valueChangeHandler: companyChangeHandler,
         inputBlurHandler: companyBlurHandler,
-        reset: resetCompany,
     } = useInput(isNotEmpty);
     const {
         value: cityValue,
@@ -30,7 +28,6 @@ const WorkingExperience = (props) => {
         hasError: cityHasError,
         valueChangeHandler: cityChangeHandler,
         inputBlurHandler: cityBlurHandler,
-        reset: resetCity,
     } = useInput(isNotEmpty);
     const {
         value: jobStartDateValue,
@@ -38,7 +35,6 @@ const WorkingExperience = (props) => {
         hasError: jobStartDateHasError,
         valueChangeHandler: jobStartDateChangeHandler,
         inputBlurHandler: jobStartDateBlurHandler,
-        reset: resetJobStartDate,
     } = useInput(isNotEmpty);
     const {
         value: jobEndDateValue,
@@ -46,7 +42,6 @@ const WorkingExperience = (props) => {
         hasError: jobEndDateHasError,
         valueChangeHandler: jobEndDateChangeHandler,
         inputBlurHandler: jobEndDateBlurHandler,
-        reset: resetJobEndDate,
     } = useInput(isNotEmpty);
     //Update the object values using useEffect
     useEffect(() => {

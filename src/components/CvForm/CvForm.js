@@ -37,6 +37,7 @@ const renderArray = (array, component, setState) => {
                 optionalClass={classes.invalid}
                 errorClass={classes["error-text"]}
                 changeState={setState}
+                resetEducation=""
             />
         ));
     } else if (component === "WorkingExperience") {
@@ -49,6 +50,7 @@ const renderArray = (array, component, setState) => {
                 optionalClass={classes.invalid}
                 errorClass={classes["error-text"]}
                 changeState={setState}
+                resetWorking=""
             />
         ));
     }
@@ -72,6 +74,14 @@ const CvForm = (props) => {
         initialWorkingState.key = uuid();
         setWorkingArray((prevState) => [...prevState, initialWorkingState]);
     };
+    //Handle the reset button click event
+    let resetFunc = { generalInfo: "" };
+    const resetClickHandler = () => {
+        resetFunc.generalInfo();
+        setEducationalArray([initialEducationState]);
+        setWorkingArray([initialWorkingState]);
+    };
+
     return (
         <Card>
             <form>
@@ -81,6 +91,7 @@ const CvForm = (props) => {
                     inputClass={classes["form-control"]}
                     optionalClass={classes.invalid}
                     errorClass={classes["error-text"]}
+                    reset={resetFunc}
                 />
                 <h2>Educational Experience</h2>
                 {renderArray(
@@ -97,6 +108,7 @@ const CvForm = (props) => {
                 )}
                 <Button onClick={addWorkingClickHandler}>Add</Button>
             </form>
+            <Button onClick={resetClickHandler}>Reset</Button>
         </Card>
     );
 };
