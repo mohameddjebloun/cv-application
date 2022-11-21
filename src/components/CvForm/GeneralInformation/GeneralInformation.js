@@ -77,6 +77,21 @@ const GeneralInformation = (props) => {
         resetPhoneNumber();
     };
     props.reset.generalInfo = resetAll;
+    //Check section validity
+    let generalInfoIsValid;
+    if (
+        firstNameIsValid &&
+        lastNameIsValid &&
+        addressIsValid &&
+        phoneNumberIsValid &&
+        emailIsValid &&
+        descriptionIsValid &&
+        imageIsValid
+    ) {
+        generalInfoIsValid = true;
+    } else {
+        generalInfoIsValid = false;
+    }
     //Lift the data up
     props.generalInfoData.firstName = firstNameValue;
     props.generalInfoData.lastName = lastNameValue;
@@ -85,6 +100,7 @@ const GeneralInformation = (props) => {
     props.generalInfoData.email = emailValue;
     props.generalInfoData.description = descriptionValue;
     props.generalInfoData.image = imageValue;
+    props.generalInfo.isValid = generalInfoIsValid;
     //Input classes
     const firstNameClasses = firstNameHasError
         ? `${props.inputClass} ${props.optionalClass}`

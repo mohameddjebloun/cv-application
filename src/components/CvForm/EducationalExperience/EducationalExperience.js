@@ -50,6 +50,20 @@ const EducationalExperience = (props) => {
         valueChangeHandler: endDateChangeHandler,
         inputBlurHandler: endDateBlurHandler,
     } = useInput(isNotEmpty);
+    //Check section validity
+    let educationIsValid;
+    if (
+        universityIsValid &&
+        cityIsValid &&
+        degreeIsValid &&
+        subjectIsValid &&
+        startDateIsValid &&
+        endDateIsValid
+    ) {
+        educationIsValid = true;
+    } else {
+        educationIsValid = false;
+    }
     //Update the object values using useEffect
     useEffect(() => {
         //Update the object values
@@ -64,6 +78,7 @@ const EducationalExperience = (props) => {
                         subject: subjectValue,
                         startDate: startDateValue,
                         endDate: endDateValue,
+                        isValid: educationIsValid,
                     };
                 }
                 return obj;

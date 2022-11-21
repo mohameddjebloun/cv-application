@@ -43,6 +43,19 @@ const WorkingExperience = (props) => {
         valueChangeHandler: jobEndDateChangeHandler,
         inputBlurHandler: jobEndDateBlurHandler,
     } = useInput(isNotEmpty);
+    //Check section validity
+    let workingIsValid;
+    if (
+        positionIsValid &&
+        companyIsValid &&
+        cityIsValid &&
+        jobStartDateIsValid &&
+        jobEndDateIsValid
+    ) {
+        workingIsValid = true;
+    } else {
+        workingIsValid = false;
+    }
     //Update the object values using useEffect
     useEffect(() => {
         //Update the object values
@@ -56,6 +69,7 @@ const WorkingExperience = (props) => {
                         city: cityValue,
                         jobStartDate: jobStartDateValue,
                         jobEndDate: jobEndDateValue,
+                        isValid: workingIsValid,
                     };
                 }
                 return obj;
