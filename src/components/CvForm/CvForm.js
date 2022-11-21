@@ -37,7 +37,6 @@ const renderArray = (array, component, setState) => {
                 optionalClass={classes.invalid}
                 errorClass={classes["error-text"]}
                 changeState={setState}
-                resetEducation=""
             />
         ));
     } else if (component === "WorkingExperience") {
@@ -50,7 +49,6 @@ const renderArray = (array, component, setState) => {
                 optionalClass={classes.invalid}
                 errorClass={classes["error-text"]}
                 changeState={setState}
-                resetWorking=""
             />
         ));
     }
@@ -82,6 +80,7 @@ const CvForm = (props) => {
         setWorkingArray([initialWorkingState]);
     };
     //Handle the form submit event
+    const generalInfoData = {};
     const handleFormSubmit = (event) => {
         event.preventDefault();
     };
@@ -95,6 +94,7 @@ const CvForm = (props) => {
                     optionalClass={classes.invalid}
                     errorClass={classes["error-text"]}
                     reset={resetFunc}
+                    generalInfoData={generalInfoData}
                 />
                 <h2>Educational Experience</h2>
                 {renderArray(

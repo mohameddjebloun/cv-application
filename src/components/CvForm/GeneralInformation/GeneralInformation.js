@@ -77,7 +77,14 @@ const GeneralInformation = (props) => {
         resetPhoneNumber();
     };
     props.reset.generalInfo = resetAll;
-
+    //Lift the data up
+    props.generalInfoData.firstName = firstNameValue;
+    props.generalInfoData.lastName = lastNameValue;
+    props.generalInfoData.address = addressValue;
+    props.generalInfoData.phoneNumber = phoneNumberValue;
+    props.generalInfoData.email = emailValue;
+    props.generalInfoData.description = descriptionValue;
+    props.generalInfoData.image = imageValue;
     //Input classes
     const firstNameClasses = firstNameHasError
         ? `${props.inputClass} ${props.optionalClass}`
