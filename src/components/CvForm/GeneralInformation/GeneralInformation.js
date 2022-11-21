@@ -100,7 +100,7 @@ const GeneralInformation = (props) => {
     props.generalInfoData.email = emailValue;
     props.generalInfoData.description = descriptionValue;
     props.generalInfoData.image = imageValue;
-    props.generalInfo.isValid = generalInfoIsValid;
+    props.generalInfoData.isValid = generalInfoIsValid;
     //Input classes
     const firstNameClasses = firstNameHasError
         ? `${props.inputClass} ${props.optionalClass}`
