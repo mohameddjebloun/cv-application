@@ -58,10 +58,8 @@ const renderArray = (array, component, setState) => {
 //Component function
 const CvForm = (props) => {
     //Initialize the states
-    const [educationalArray, setEducationalArray] = useState([
-        initialEducationState,
-    ]);
-    const [workingArray, setWorkingArray] = useState([initialWorkingState]);
+    const [educationalArray, setEducationalArray] = useState([]);
+    const [workingArray, setWorkingArray] = useState([]);
     //Handle the add button click event
     const addEducationClickHandler = () => {
         initialEducationState.key = uuid();
@@ -78,8 +76,8 @@ const CvForm = (props) => {
     let resetFunc = { generalInfo: "" };
     const resetClickHandler = () => {
         resetFunc.generalInfo();
-        setEducationalArray([initialEducationState]);
-        setWorkingArray([initialWorkingState]);
+        setEducationalArray([]);
+        setWorkingArray([]);
         props.sendDataUp({});
     };
     //Check if all education fields are valid
