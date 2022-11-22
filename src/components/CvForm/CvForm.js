@@ -16,6 +16,7 @@ const initialEducationState = {
     subject: "",
     startDate: "",
     endDate: "",
+    isValid: false,
 };
 const initialWorkingState = {
     key: uuid(),
@@ -24,6 +25,7 @@ const initialWorkingState = {
     city: "",
     jobStartDate: "",
     jobEndDate: "",
+    isValid: false,
 };
 //Create the render array function to render the array of objects
 const renderArray = (array, component, setState) => {
@@ -78,11 +80,48 @@ const CvForm = (props) => {
         resetFunc.generalInfo();
         setEducationalArray([initialEducationState]);
         setWorkingArray([initialWorkingState]);
+        props.sendDataUp({});
     };
+    //Check if all education fields are valid
+    const educationalArrayIsValid = () => {
+        for (const item of educationalArray) {
+            if (!item.isValid) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    //Check if all work fields are valid
+    const workingArrayIsValid = () => {
+        for (const item of workingArray) {
+            if (!item.isValid) {
+                return false;
+            }
+        }
+        return true;
+    };
+
     //Handle the form submit event
     const generalInfoData = {};
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        if (
+            !generalInfoData.isValid ||
+            !workingArrayIsValid() ||
+            !educationalArrayIsValid()
+        ) {
+            alert("Fill all fields");
+            return;
+        } else {
+            console.log("Submitted");
+            props.sendDataUp({
+                generalInfo: generalInfoData,
+                educationData: educationalArray,
+                workingData: workingArray,
+            });
+        }
     };
     return (
         <Card>
