@@ -6,7 +6,12 @@ function App() {
     return (
         <React.Fragment>
             <CvForm sendDataUp={setFieldsData} />
-            <GeneratedCv />
+            <GeneratedCv
+                data={fieldsData}
+                generalInfo={fieldsData.hasOwnProperty("generalInfo")}
+                educationData={fieldsData.hasOwnProperty("educationData")}
+                workingData={fieldsData.hasOwnProperty("workingData")}
+            />
         </React.Fragment>
     );
 }
