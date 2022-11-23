@@ -1,4 +1,5 @@
 //Imports
+import useImage from "../../../hooks/use-image";
 import useInput from "../../../hooks/use-input";
 import Input from "../../UI/Input";
 //Validation functions
@@ -65,7 +66,7 @@ const GeneralInformation = (props) => {
         valueChangeHandler: imageChangeHandler,
         inputBlurHandler: imageBlurHandler,
         reset: resetImage,
-    } = useInput(isNotEmpty);
+    } = useImage();
     //Handle reset prop
     const resetAll = () => {
         resetAddress();
@@ -212,7 +213,6 @@ const GeneralInformation = (props) => {
                 type="file"
                 id="image"
                 labelValue={"Image"}
-                value={imageValue}
                 onChange={imageChangeHandler}
                 onBlur={imageBlurHandler}
                 errorText="Please upload an image file."
