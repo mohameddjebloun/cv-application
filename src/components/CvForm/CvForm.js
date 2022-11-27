@@ -150,6 +150,7 @@ const CvForm = (props) => {
                 <Button type="submit">Generate CV</Button>
             </form>
             <Button onClick={resetClickHandler}>Reset</Button>
+            <Button onClick={props.downloadCvHandler}>Download CV</Button>
         </Card>
     );
 };
