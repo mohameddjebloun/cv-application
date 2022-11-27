@@ -100,7 +100,7 @@ const GeneratedCv = (props) => {
         );
     };
     return (
-        <main className={classes["resume-contents"]}>
+        <main ref={props.cvRef} className={classes["resume-contents"]}>
             <section className={classes["generalInfo-section"]}>
                 {props.generalInfo && generalInfoDiv()}
             </section>
