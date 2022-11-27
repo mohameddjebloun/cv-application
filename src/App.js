@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 import GeneratedCv from "./components/GeneratedCv/GeneratedCv";
 import CvForm from "./components/CvForm/CvForm";
+import classes from "./App.module.css";
 function App() {
     const [fieldsData, setFieldsData] = useState({});
+
     return (
-        <React.Fragment>
+        <div className={classes.app}>
             <CvForm sendDataUp={setFieldsData} />
             <GeneratedCv
                 data={fieldsData}
                 generalInfo={fieldsData.hasOwnProperty("generalInfo")}
-                educationData={fieldsData.hasOwnProperty("educationData")}
-                workingData={fieldsData.hasOwnProperty("workingData")}
+                educationData={
+                    fieldsData.hasOwnProperty("educationData") &&
+                    fieldsData.educationData.length > 0
+                }
+                workingData={
+                    fieldsData.hasOwnProperty("workingData") &&
+                    fieldsData.workingData.length > 0
+                }
             />
-        </React.Fragment>
+        </div>
     );
 }
 
