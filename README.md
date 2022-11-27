@@ -1,4 +1,17 @@
-# Getting Started with Create React App
+# CV Generator
+
+This is a react app where you need to fill the form fields then click on Generate cv to get one and you can even download it as a png, keep in mind that the layout of the cv template for the pc and mobile versions are different
+[Live Demo](https://mohameddjebloun.github.io/cv-application/) :point_left:
+If you want to run it locally and/or play around with the code then you should:
+
+## Getting Started
+
+```
+git clone https://github.com/mohameddjebloun/cv-application.git
+cd cv-application
+npm install
+npm start
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +81,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## CV template inspired from [this](https://github.com/FahadulShadhin/Resume-template)
