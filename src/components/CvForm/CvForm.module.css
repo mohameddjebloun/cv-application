@@ -65,3 +65,11 @@ button {
     width: 50%;
     margin: 0.1rem;
 }
+@media screen and (max-width: 768px) {
+    button {
+        width: 100%;
+    }
+    .control-group .form-control {
+        width: 100%;
+    }
+}
